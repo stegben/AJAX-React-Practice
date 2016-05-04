@@ -17,11 +17,11 @@ router.get("/user/:username", (req, res) => {
   var idx = 0;
   for (idx = 0; idx < user_data['users'].length; idx++){
     if (user_data['users'][idx]['name'] === req.params.username){
-      res.json(user_data['users'][idx]);
+      res.status(200).json(user_data['users'][idx]);
       break;
     };
   };
-  res.send("no such name: " + req.params.username)
+  res.status(404).send("no such name: " + req.params.username)
 });
 
 module.exports = router;
